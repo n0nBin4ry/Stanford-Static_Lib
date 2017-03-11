@@ -16,7 +16,7 @@ SOURCE = \
 	urlstream.o \
 	version.o
 	
-TARGET = StanLib.a
+TARGET = libStanford.a
 
 all:
 	ar rvs $(TARGET) $(SOURCE)

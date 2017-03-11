@@ -24,7 +24,7 @@
 #include <windows.h>
 #include <tchar.h>
 #include <stdio.h>
-//#include <strsafe.h>
+#include <strsafe.h>
 #  undef MOUSE_EVENT
 #  undef KEY_EVENT
 #  undef MOUSE_MOVED
