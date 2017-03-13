@@ -6,16 +6,17 @@ To make Staford C++ Library easier to use/access (in my opinion) and learn/pract
 
 ###TO-DO:
 - Keep testing MinGW and MinGW-w64 static libraries.
-- Seek help on my undefined closeConsoleAnsExit undeclared function error.
+- Seek help on undefined reference to 'stacktrace::call_stack::call_stack' in exceptions 
 - Look into shared libraries and how to build those, will either add them to this repo or another.
+- Spell-check Readme file
 
 ###LOG: (and personal notes)
 - 3/7/17:
   - Put all .cpp files into src directory and all .h files into include directory (but kept the headers in private within their 
 	directory but moved it into the include directory).
 - 3/8/17:
-	- For MinGW: Learned I need to include the flag -std=c++11 (or -std=gnu++11) in command line when making an object(.o) file. So for
-  	now my command for building objects is: g++ -I.\include -c file.cpp -std=c++11 (while in the src directory)
+	- For MinGW: Learned I need to include the flag -std=c++11 (or -std=gnu++11) in command line when making an object(.o) file. So
+	  far now my command for building objects is: g++ -I.\include -c file.cpp -std=c++11 (while in the src directory)
 	- For MinGW: learned that I needed strsafe.h in the main include folder of MinGW when making an object file out of call_stack_gcc.cpp,
 		didn't have it for some reason. Downloaded it from github somewhere and set put it where it needs to go.
 	- Recieved many more errors; going to try to comment out the inclusion of strsafe.h in call_stack_gc.cpp.
@@ -55,3 +56,8 @@ To make Staford C++ Library easier to use/access (in my opinion) and learn/pract
 	- Maybe the error is because of the test file and not the static library.
 - 3/11/17
 	- Put MinGW-w64 changes onto GitHub repository, then but notes from notebook onto readme.
+- 3/12/17
+	- Found out by author of test files that the closeConsoleAndExist function is only in his personal version of the Library so I just
+		need to comment it out.
+	- Now I get and error that says there is undefined reference to 'stacktrace::call_stack::call_stack' 3 seperate times within
+		exception.o which is basically just exception.cpp
