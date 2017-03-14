@@ -1,7 +1,7 @@
 #Recipe to make static library StanLib.a from all the object files
 SOURCE = \
 	base64.o basicgraph.o bitstream.o \
-	call_stack_gcc.o console.o \
+	call_stack_gcc.o call_stack_windows.o console.o \
 	dawglexicon.o direction.o \
 	error.o exceptions.o \
 	filelib.o \
