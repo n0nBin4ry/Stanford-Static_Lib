@@ -1,16 +1,16 @@
 # Stanford-Static_Lib
 Practiced making a Static Library using the Stanford C++ Library as the source
 
-###Motiviation: 
+### Motiviation: 
 To make Staford C++ Library easier to use/access (in my opinion) and learn/practice how to make/use static libraries.
 
-###TO-DO:
-- Keep testing MinGW and MinGW-w64 static libraries.
-- Seek help on undefined reference to 'stacktrace::call_stack::call_stack' in exceptions 
+### TO-DO:
+- Keep testing and fixing MinGW static library.
+- Figure out SPL_HOME environmental variable problem.
 - Look into shared libraries and how to build those, will either add them to this repo or another.
 - Spell-check Readme file
 
-###LOG: (and personal notes)
+### LOG: (and personal notes)
 - 3/7/17:
   - Put all .cpp files into src directory and all .h files into include directory (but kept the headers in private within their 
 	directory but moved it into the include directory).
@@ -61,3 +61,17 @@ To make Staford C++ Library easier to use/access (in my opinion) and learn/pract
 		need to comment it out.
 	- Now I get and error that says there is undefined reference to 'stacktrace::call_stack::call_stack' 3 seperate times within
 		exception.o which is basically just exception.cpp
+- 3/13/17
+	- Realized I left out call_stack_windows.o in the Makefile for MinGW-w64 library so I fixed that error.
+	- Recieved many many linker errors now when compiling test files.
+- 3/14/17
+	- Learned that I need to have -l linker flags at end of command.
+		- command is now (for MinGW-w64): g++ file.cpp -o try.exe -I.\include -L.\libs\MinGW-w64 -lStanford64
+	- Getting simpler errors about undefined refrences in call_stack_windows.cpp
+	- Learned that I need to also include the flag -limagehlp needed for MinGW-w64 (and maybe MinGW too).
+		- command is now (for MinGW-w64): g++ file.cpp -o try.exe -I.\include -L.\libs\MinGW-w64 -lStanford64 -limagehlp
+	- Test file compiled without error!
+	- When running exe I get a message I need the spl.jar that came with OG lib in the same dir or put it in a dir that is in the path of
+		an Environmental variable named SPL_HOME
+	- Tried the environmental variable approach but I recieved that exe not working window from Windows itself.
+	- Exe works when I just plce spl.jar in same dir.
